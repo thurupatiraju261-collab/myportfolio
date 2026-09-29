@@ -22,7 +22,7 @@ export const portfolioData = {
     nameLine1: "Thurupati",
     nameLine2: "Raju",
     fullName: "Thurupati Raju",
-    profileImage: "/raju_pass_pic.svg",
+    profileImage: "/raju_pass_pic.jpg",
     typewriterPrefix: "I build ",
     typewriterWords: [
       "scalable APIs...",

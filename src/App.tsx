@@ -16,11 +16,15 @@ import FinishingTouches from './components/FinishingTouches.jsx';
 export default function App() {
   return (
     <div className="min-h-screen bg-[#050203] text-white relative selection:bg-[#ff1f3d] selection:text-white">
-      {/* Fixed full-page grid overlay behind all content (z-0, pointer-events-none):
-          linear-gradient(rgba(37,99,235,0.18) 1px, transparent 1px) with radial mask
-      */}
+      {/* Fixed blue grid overlay */}
       <div 
         className="fixed inset-0 z-0 pointer-events-none cyber-grid-overlay" 
+        aria-hidden="true" 
+      />
+
+      {/* Animated smoke-blue fog waves */}
+      <div 
+        className="blue-fog-overlay" 
         aria-hidden="true" 
       />
 

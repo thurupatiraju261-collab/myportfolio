@@ -10,7 +10,7 @@ export default function Hero() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-  const [imageSrc, setImageSrc] = useState(hero.profileImage || '/raju_pass_pic.svg');
+  const [imageSrc, setImageSrc] = useState(hero.profileImage || '/raju_pass_pic.jpg');
 
   useEffect(() => {
     const words = hero.typewriterWords;
@@ -76,8 +76,8 @@ export default function Hero() {
                   alt={hero.fullName || "Thurupati Raju"}
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   onError={() => {
-                    if (imageSrc !== '/raju_pass_pic.svg') {
-                      setImageSrc('/raju_pass_pic.svg');
+                    if (imageSrc !== '/raju_pass_pic.jpg') {
+                      setImageSrc('/raju_pass_pic.jpg');
                     }
                   }}
                 />

@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Circle } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { portfolioData } from '../data/portfolio.js';
 
 export default function Navbar() {
   const { navbar } = portfolioData;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+
+  // Always apply light mode
+  useEffect(() => {
+    document.documentElement.classList.add('light');
+  }, []);
 
   // Scroll-spy to detect active section
   useEffect(() => {
@@ -38,7 +43,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-18">
           
-          {/* Left logo: "RAJ" in white, font-heading font-bold, with a tiny red square mark before it */}
+          {/* Left logo */}
           <a
             href="#home"
             className="flex items-center gap-2.5 text-white font-heading font-bold text-xl tracking-tight group"
@@ -57,10 +62,7 @@ export default function Navbar() {
             ) : null}
           </a>
 
-          {/* Center pill links: Home, About, Education, Skills, Soft Skills, Experience, Projects, Certs, Contact.
-              text-sm, muted by default, white on hover.
-              The active link (scroll-spy) gets a red/15 pill background, red border, red text.
-          */}
+          {/* Center pill nav links */}
           <nav className="hidden lg:flex items-center gap-1.5 p-1 rounded-full bg-[#0b0507]/60 border border-[rgba(255,31,61,0.15)]">
             {navbar.navLinks.map((link) => {
               const isActive = activeSection === link.id;
@@ -80,18 +82,8 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Right: small red circle icon button */}
+          {/* Right: mobile hamburger only */}
           <div className="flex items-center gap-3">
-            <button
-              type="button"
-              className="w-8 h-8 rounded-full bg-[#ff1f3d] hover:bg-[#b3122a] flex items-center justify-center text-white shadow-[0_0_14px_rgba(255,31,61,0.5)] transition-all hover:scale-110 active:scale-95"
-              aria-label="Status Indicator"
-              title="System Active"
-            >
-              <Circle className="w-3.5 h-3.5 fill-white text-white" />
-            </button>
-
-            {/* Mobile Hamburger toggle */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -104,7 +96,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile: hamburger opens a full-width dropdown */}
+      {/* Mobile dropdown */}
       {mobileMenuOpen && (
         <div className="lg:hidden w-full bg-[#050203]/95 backdrop-blur-xl border-b border-[rgba(255,31,61,0.25)] px-4 py-4 space-y-1.5 animate-fadeIn">
           {navbar.navLinks.map((link) => {
